@@ -4,95 +4,105 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public enum JumpState
+    public CharacterController controller;
+    public float speed = 12.0f;
+    public float gravity = -9.81f;
+    public float jumpHeight = 3.0f;
+
+    public Transform groundCheck;
+    public float groundDistance = 0.4f;
+    public LayerMask groundMask;
+
+    public Vector3 velocity;
+    bool IsGrounded;
+
+    private void Start()
     {
-        Grounded,
-        Jumping
-
+        DestructibleObject player = GetComponent<DestructibleObject>();
+        ServiceLocator.Get<GameManager>().SetHealthBar(player.MaxHealth);
+        ServiceLocator.Get<GameManager>().UpdateHealthBar(player.CurrentHealth);
+        DontDestroyOnLoad(gameObject);
+        
     }
-    public float speed = 10.0f;
-    public float jumpForce = 100.0f;
-    public int playerPoints = 0;
-    //private int Level = 1;
-    //private bool IsOntheGround = true;
-    private Rigidbody rb;
-    private JumpState _jumpState = JumpState.Grounded;
-    // Start is called before the first frame update
-
-
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-
-    }
-
     // Update is called once per frame
     void Update()
     {
-        Jump();
-        if (transform.position.y < -10.0f)
-        {
-            //ServiceLocator.Get<UIManager>().SetEndUi(0);
-            Invoke("StopTheGame", 0.3f);
-        }
-    }
-
-    private void FixedUpdate()
-    {
+        
         Move();
 
     }
 
+    //private void FixedUpdate()
+    //{
+    //    Move();
+
+
+    //}
+
     private void Move()
     {
-        float moveHorizaontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+        IsGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-
-        Vector3 movement = new Vector3(moveHorizaontal * speed, 0.0f, moveVertical * speed);
-
-        rb.AddForce(movement);
-
-
-    }
-    private void Jump()
-    {
-        float JumpVal = Input.GetKeyDown(KeyCode.Space) ? jumpForce : 0.0f;
-
-        switch (_jumpState)
+        if (IsGrounded && velocity.y < 0.0f)
         {
-            case JumpState.Grounded:
-                if (JumpVal > 0.0f)
-                {
-                    _jumpState = JumpState.Jumping;
-                }
-                break;
-            case JumpState.Jumping:
-                if (JumpVal > 0.0f)
-                {
-                    JumpVal = 0.0f;
-                }
-                break;
+            velocity.y = -2.0f;
+
         }
-        Vector3 jump = new Vector3(0.0f, JumpVal, 0.0f);
-        rb.AddForce(jump);
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
 
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
+        Vector3 move = transform.right * x + transform.forward * z;
+        controller.Move(move * speed * Time.deltaTime);
 
-        if (_jumpState == JumpState.Jumping  && collision.gameObject.CompareTag("Ground"))
+        if (Input.GetButtonDown("Jump") && IsGrounded)
         {
-            _jumpState = JumpState.Grounded;
+            velocity.y = Mathf.Sqrt(jumpHeight * -2.0f * gravity);
+
         }
-    }
-   
-    private void StopTheGame()
-    {
-        Time.timeScale = 0;
+
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
+
 
     }
+    //private void Jump()
+    //{
+    //    float JumpVal = Input.GetKeyDown(KeyCode.Space) ? jumpForce : 0.0f;
+
+    //    switch (_jumpState)
+    //    {
+    //        case JumpState.Grounded:
+    //            if (JumpVal > 0.0f)
+    //            {
+    //                _jumpState = JumpState.Jumping;
+    //            }
+    //            break;
+    //        case JumpState.Jumping:
+    //            JumpVal = 0.0f;
+    //            Debug.Log("JumpState: " + _jumpState.ToString());
+    //            break;
+
+    //    }
+    //    Vector3 jump = new Vector3(0.0f, JumpVal, 0.0f);
+    //    rb.AddForce(jump);
+
+    //}
+    //private void OnCollisionEnter(Collision collision)
+    //{
+
+    //    if (_jumpState == JumpState.Jumping && collision.gameObject.CompareTag("Ground"))
+    //    {
+    //        _jumpState = JumpState.Grounded;
+    //    }
+    //}
+
+    //private void StopTheGame()
+    //{
+    //    Time.timeScale = 0;
+
+    //}
+
+
 
 
 
