@@ -3690,7 +3690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muzzleTransform: {fileID: 7613987065571767613}
   firerate: 10
-  damage: 20
+  damage: 10
   range: 100
   ImpactForce: 100
   fpsCamera: {fileID: 7613987066021841553}
@@ -3901,7 +3901,7 @@ Transform:
   - {fileID: 7613987065844012948}
   - {fileID: 7613987066225765985}
   m_Father: {fileID: 7613987065596279838}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &7613987065076953209
 Transform:
@@ -4298,8 +4298,8 @@ Transform:
   m_LocalPosition: {x: -0.14, y: -0.69, z: -0.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7618505407059156686}
   - {fileID: 7613987065076953207}
+  - {fileID: 7618505407059156686}
   - {fileID: 7613987065647597901}
   m_Father: {fileID: 7613987066021841554}
   m_RootOrder: 0
@@ -5555,7 +5555,7 @@ Transform:
   - {fileID: 7613987065571767613}
   - {fileID: 7613987066337575568}
   m_Father: {fileID: 7613987065596279838}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &7618716932954133986
 Transform:
