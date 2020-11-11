@@ -3690,7 +3690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muzzleTransform: {fileID: 7613987065571767613}
   firerate: 10
-  damage: 5
+  damage: 20
   range: 100
   ImpactForce: 100
   fpsCamera: {fileID: 7613987066021841553}

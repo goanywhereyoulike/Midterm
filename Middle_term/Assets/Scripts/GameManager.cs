@@ -8,7 +8,9 @@ public class GameManager : MonoBehaviour
     private static readonly Dictionary<int, int> _killEnemiesByLevel = new Dictionary<int, int>()
     {
         {1,4},
-        {2,3}
+        {2,4},
+        {3,3}
+       
     };
 
     private int _numEnemyKilled = 0;

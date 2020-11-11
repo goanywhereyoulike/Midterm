@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GameLoader : AsynCloader
 {
-    public int sceneIndexToLoad = 1;
+    public int sceneIndexToLoad = 2;
     public GameObject UIManagerPrefab = null;
     public LoadingScreen loadingScreen = null;
-    private static int _sceneIndex = 1;
+    private static int _sceneIndex = 2;
     private static GameLoader _instance;
     protected override void Awake()
     {

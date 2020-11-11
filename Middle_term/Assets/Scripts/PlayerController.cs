@@ -45,13 +45,6 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    //private void FixedUpdate()
-    //{
-    //    Move();
-
-
-    //}
-
     private void Move()
     {
         IsGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -78,48 +71,6 @@ public class PlayerController : MonoBehaviour
 
 
     }
-    //private void Jump()
-    //{
-    //    float JumpVal = Input.GetKeyDown(KeyCode.Space) ? jumpForce : 0.0f;
-
-    //    switch (_jumpState)
-    //    {
-    //        case JumpState.Grounded:
-    //            if (JumpVal > 0.0f)
-    //            {
-    //                _jumpState = JumpState.Jumping;
-    //            }
-    //            break;
-    //        case JumpState.Jumping:
-    //            JumpVal = 0.0f;
-    //            Debug.Log("JumpState: " + _jumpState.ToString());
-    //            break;
-
-    //    }
-    //    Vector3 jump = new Vector3(0.0f, JumpVal, 0.0f);
-    //    rb.AddForce(jump);
-
-    //}
-    //private void OnCollisionEnter(Collision collision)
-    //{
-
-    //    if (_jumpState == JumpState.Jumping && collision.gameObject.CompareTag("Ground"))
-    //    {
-    //        _jumpState = JumpState.Grounded;
-    //    }
-    //}
-
-    //private void StopTheGame()
-    //{
-    //    Time.timeScale = 0;
-
-    //}
-
-
-
-
-
-
-
+   
 
 }

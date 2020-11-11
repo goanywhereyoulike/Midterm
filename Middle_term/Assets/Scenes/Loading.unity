@@ -1037,7 +1037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 903c6f0eb050c924c978f74ea1194fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneIndexToLoad: 1
+  sceneIndexToLoad: 2
   UIManagerPrefab: {fileID: 6952500347550214996, guid: 1142e4b73dc1bdc448bb06c86ede50f5, type: 3}
   loadingScreen: {fileID: 1102294562}
 --- !u!4 &2009761098
