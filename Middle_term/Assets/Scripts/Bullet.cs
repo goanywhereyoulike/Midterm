@@ -26,26 +26,5 @@ public class Bullet : MonoBehaviour
             }
         }
     }
-    //private void OnTriggleEnter(Collision collision)
-    //{
-    //    var damageable = collision.gameObject.GetComponent<IDamageable>();
-    //    if (damageable != null)
-    //    {
-    //        damageable.TakeDamage(bulletDamage);
-    //    }
-
-    //    if (collision.gameObject.CompareTag("Enemy"))
-    //    {
-    //        DestructibleObject enemyhealth = collision.gameObject.GetComponent<DestructibleObject>();
-    //        if (enemyhealth.CurrentHealth == 0)
-    //        {
-
-    //            ServiceLocator.Get<GameManager>().UpdateScore(10);
-    //        }
-    //    }
-
-
-
-
-    //}
+   
 }

@@ -22,6 +22,7 @@ public class EnemyNPC : MonoBehaviour
     {
         _agent = GetComponent<NavMeshAgent>();
         _gun = gunObject.GetComponent<EnemyGuns>();
+        target = FindObjectOfType<PlayerController>().transform;
         healthBar.maxValue = this.GetComponent<DestructibleObject>().MaxHealth;
         healthBar.value = healthBar.maxValue;
     }

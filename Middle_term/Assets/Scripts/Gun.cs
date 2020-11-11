@@ -8,8 +8,6 @@ public class Gun : MonoBehaviour
 {
   
     public Transform muzzleTransform;
-    //public GameObject bulletPrefab;
-    //public float bulletVelocity = 100.0f;
     private float nextTimeToFire = 0.0f;
     public float firerate = 10.0f;
     private float dividedFireRate = 0.0f;
@@ -78,10 +76,6 @@ public class Gun : MonoBehaviour
             }
 
         }
-        //GameObject bullet = Instantiate(bulletPrefab, muzzleTransform.position, Quaternion.identity);
-        //Rigidbody rb = bullet.GetComponent<Rigidbody>();
-        //rb.AddForce(muzzleTransform.up * bulletVelocity, ForceMode.Force);
-
     }
 
 }

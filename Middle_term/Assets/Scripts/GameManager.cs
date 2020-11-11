@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     private static readonly Dictionary<int, int> _killEnemiesByLevel = new Dictionary<int, int>()
     {
         {1,4},
-        {2,2}
+        {2,3}
     };
 
     private int _numEnemyKilled = 0;
@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public int CurrentLevel { get { return _currentLevevl; } }
 
     private UIManager _uiManager = null;
-
+ 
     public GameManager Initialize(int startLevel)
     {
         GameLoader.CallOnComplete(OnGameLoaderComplete);
@@ -82,6 +82,11 @@ public class GameManager : MonoBehaviour
         _uiManager.UPdateTimeDisplay();
     }
 
+    public void UpdateMessageText(string text)
+    {
+        _uiManager.DisplayMessageText(text);
+    }
+
     private void CheckWinCondition()
     {
 
@@ -92,4 +97,11 @@ public class GameManager : MonoBehaviour
             LoadNextLevel();
         }
     }
+
+    public void Pause()
+    {
+        _uiManager.Pause();
+    }
+
+   
 }

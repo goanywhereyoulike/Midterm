@@ -15,10 +15,10 @@ public class PlayerController : MonoBehaviour
 
     public Vector3 velocity;
     bool IsGrounded;
-
+    DestructibleObject player;
     private void Start()
     {
-        DestructibleObject player = GetComponent<DestructibleObject>();
+        player = GetComponent<DestructibleObject>();
         ServiceLocator.Get<GameManager>().SetHealthBar(player.MaxHealth);
         ServiceLocator.Get<GameManager>().UpdateHealthBar(player.CurrentHealth);
         DontDestroyOnLoad(gameObject);
@@ -29,6 +29,19 @@ public class PlayerController : MonoBehaviour
     {
         
         Move();
+        if (player.CurrentHealth <= 0)
+        {
+            
+            ServiceLocator.Get<GameManager>().UpdateMessageText("YOU LOSE");
+            Time.timeScale = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ServiceLocator.Get<GameManager>().Pause();
+
+        }
+
 
     }
 

@@ -7,7 +7,7 @@ public class EnemyGuns : MonoBehaviour
     public Transform muzzleTransform;
     public GameObject bulletPrefab;
     public float bulletVelocity = 100.0f;
-    private float shootrate = 0.1f;
+    public float shootrate =0.5f;
     private float shoottime = 0;
     // Update is called once per frame
 

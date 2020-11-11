@@ -5,7 +5,7 @@ using UnityEngine;
 public class CloudMove : MonoBehaviour
 {
     private bool dirRight = true;
-    //public float speed = 1000.0f;
+
     void Update()
     {
         if (dirRight)

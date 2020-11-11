@@ -73,47 +73,13 @@ public class UIManager : MonoBehaviour
         _hud.UpdateTimeText(Time);
     }
 
+
+    public void Pause()
+    {
+        _hud.Pause();
+    }
+
    
-    //bool EndUiactive = false;
-
-    //[SerializeField]
-    //private Text pointsText;
-
-    //[SerializeField]
-    //private Text timeText;
-
-    //[SerializeField]
-    //private Text EndText;
-
-
-    //public void SetEndUi(int state)
-    //{
-    //    EndUiactive = true;
-    //    if (state == 2)
-    //    {
-    //        EndText.text = "YOU WIN";
-    //        SetUI();
-
-
-    //    }
-    //    else if (state == 1)
-    //    {
-    //        EndText.text = "Next Level";
-    //        SetUI();
-    //    }
-    //    else if (state == 0)
-    //    {
-    //        EndText.text = "YOU LOSE";
-    //        SetUI();
-    //    }
-    //    EndUiactive = false;
-    //}
-
-    //public void SetUI()
-    //{
-    //    EndText.gameObject.SetActive(EndUiactive);
-    //}
-
     private IEnumerator TimeAdd()
     {
         while (true)
